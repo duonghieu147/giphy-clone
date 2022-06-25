@@ -1,0 +1,57 @@
+<div class="main">
+    <div class="header">
+        <p (click)="back()">Back</p>
+    </div>
+    <!-- Doing -->
+    <!-- <app-search (searchEvent)="search($event)"></app-search> -->
+    <div class="content">
+        <div class="content-inf">
+            <div class="row">
+                <div class="column__main">
+                    <img src={{firstElement[8]}} style="width:100%">
+                    <h5>{{firstElement[5]}}</h5>
+                    <div style="display:flex;">
+                        <pre class="display-name"
+                            *ngIf="firstElement[6]&&firstElement[6].display_name">@{{firstElement[6].display_name}} </pre>
+                        <pre *ngIf="firstElement[3]">{{firstElement[3] | date:'short'|| ''}} </pre>
+
+                    </div>
+                    <div class="tags">
+                        <ng-template ngFor let-item [ngForOf]="firstElement[4]" let-i="index">
+                            <pre *ngIf="i<4">#{{item}}</pre>
+                        </ng-template>
+                    </div>
+                    <div class="gallery">
+                        <h2>Related</h2>
+                        <div class="row">
+                            <div class="column">
+                                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                                    <app-item-gif *ngIf="i>4 && i%3==0" [item]="item"></app-item-gif>
+                                </ng-template>
+                            </div>
+                            <div class="column">
+                                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                                    <app-item-gif *ngIf="i>4 && i%3==1" [item]="item"></app-item-gif>
+                                </ng-template>
+                            </div>
+                            <div class="column">
+                                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                                    <app-item-gif *ngIf="i>4 && i%3==2" [item]="item"></app-item-gif>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column__upnext">
+                    <h2>UP NEXT</h2>
+                    <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                        <app-item-gif *ngIf="i<4 && i>0" [item]="item"></app-item-gif>
+                    </ng-template>
+                    <!-- <span>View Extend</span> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <app-footer></app-footer>
+</div>

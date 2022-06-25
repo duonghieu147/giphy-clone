@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="header">
+        <div class="note">
+            <pre>Note: if you get an error read file document. If you call api pls seen API_KEY = window.GIPHY_FE_WEB_API_KEY in tab network</pre>
+            <pre>Note: I only handle with gifs,trend gifs with tag (img,video muted) , it won't have Stickers,Videos ...</pre>
+            <pre>Note: I only handle search with key word, it won't have search with @username ,#tag </pre>
+        </div>
+    </div>
+    <app-search (searchEvent)="search($event)"></app-search>
+    <div class="gallery">
+        <div class="row">
+            <div class="column">
+                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                    <app-item-gif *ngIf="i%4 === 0" [item]="item"></app-item-gif>
+                </ng-template>
+            </div>
+            <div class="column">
+                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                    <app-item-gif *ngIf="i%4 === 1" [item]="item"></app-item-gif>
+                </ng-template>
+            </div>
+            <div class="column">
+                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                    <app-item-gif *ngIf="i%4 === 2" [item]="item"></app-item-gif>
+                </ng-template>
+            </div>
+            <div class="column">
+                <ng-template ngFor let-item [ngForOf]="gifsList" let-i="index">
+                    <app-item-gif *ngIf="i%4 === 3" [item]="item"></app-item-gif>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

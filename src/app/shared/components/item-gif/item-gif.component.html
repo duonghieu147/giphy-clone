@@ -1,0 +1,26 @@
+<div [hidden]="!isLoading" class="item-gif">
+    <div *ngIf="!item[8]">
+        <video autoplay loop muted (click)="openDetailGiphy() " >
+            <source src={{item[9]}} (loadeddata)="endLoading()"/>
+        </video>
+    </div>
+    <div *ngIf="item[8]">
+        <img src={{item[8]}} style="width:100%" (click)="openDetailGiphy()" (load)="endLoading()">
+    </div>
+    <div class="inf">
+        <div style="display:flex;">
+            <img class="avatar" *ngIf="item[6]&&item[6].avatar_url" src={{item[6].avatar_url}} alt="">  
+            <pre class="display-name" *ngIf="item[6]&&item[6].display_name">@{{item[6].display_name}} </pre>
+        </div>
+        <div class="tags" *ngIf="!(item[6]&&item[6].display_name)">
+            <ng-template ngFor let-item [ngForOf]="item[4]" let-i="index" >
+                <pre *ngIf="i<1">#{{item}}</pre>
+            </ng-template>
+            <pre>...</pre>
+        </div>     
+    </div>
+    
+</div >
+<div [hidden]="isLoading" id="loading-bar-spinner" class="spinner">
+    <div  class="spinner-icon"></div>
+</div>

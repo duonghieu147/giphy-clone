@@ -14,7 +14,7 @@ export class LoginSocialMediaComponent implements OnInit {
   ngOnInit(): void {
     window.onload = function () {
       google.accounts.id.initialize({
-        client_id: "YOUR_GOOGLE_CLIENT_ID",
+        client_id: "892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com",
         callback: handleCredentialResponse
       });
       google.accounts.id.renderButton(
@@ -27,4 +27,5 @@ export class LoginSocialMediaComponent implements OnInit {
   handleCredentialResponse(response: { credential: string; }) {
     console.log("Encoded JWT ID token: " + response.credential);
   }
+  
 }

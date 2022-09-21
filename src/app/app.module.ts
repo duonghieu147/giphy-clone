@@ -15,6 +15,7 @@ import { DashboardComponent } from './modules/page/dashboard/dashboard.component
 import { BankCardComponent } from './shared/components/bank-card/bank-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
+import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MaterialModule } from './shared/material.module';
     ItemGifComponent,
     SearchComponent,
     DashboardComponent,
-    BankCardComponent
+    BankCardComponent,
+    LoginSocialMediaComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,6 @@
     "test": "ng test",
     "heroku-postbuild": "npm run build"
   },
-  "postinstall": "ng build --aot --prod",
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",

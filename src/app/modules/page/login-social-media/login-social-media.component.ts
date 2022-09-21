@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 declare var google:any;
-declare var handleCredentialResponse:any;
 @Component({
   selector: 'app-login-social-media',
   templateUrl: './login-social-media.component.html',
@@ -24,8 +23,14 @@ export class LoginSocialMediaComponent implements OnInit {
       google.accounts.id.prompt(); // also display the One Tap dialog
     }
   }
-  handleCredentialResponse(response: { credential: string; }) {
-    console.log("Encoded JWT ID token: " + response.credential);
-  }
+  // handleCredentialResponse(response: { credential: string; }) {
+  //   console.log("Encoded JWT ID token: " + response);
+  //   console.log("Encoded JWT ID token: " + response.credential);
+  // }
   
+}
+
+function handleCredentialResponse(response: { credential: string; }) {
+  console.log("Encoded JWT ID token: " + response);
+  console.log("Encoded JWT ID token: " + response.credential);
 }

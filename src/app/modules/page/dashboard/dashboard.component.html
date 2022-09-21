@@ -1,0 +1,45 @@
+<div class="layout">
+    <!-- <div class="header"></div>
+    <div class="sidebar"></div> -->
+    <div class="content">
+        <div class="gallery-index-1">
+            <div class="item" (click)="handleRouting(1)">
+                <img class="img-type type1"
+                    src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t1.6435-9/166014380_1392790014404846_1341965397669879252_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pLiH1bwEMlgAX8ZGIjF&_nc_ht=scontent.fsgn19-1.fna&oh=00_AT8vNHfuZLDynGqfD7SEmt6A1Qr0BNojtqpGUYT34xEzoA&oe=634FBD16" />
+            </div>
+            <div class="item" (click)="handleRouting(2)">
+                <img class="img-type type2"
+                    src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/278966512_742007040129026_6832446896305315460_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zBaKUtPpwLEAX8uPStN&_nc_ht=scontent.fsgn19-1.fna&oh=00_AT_4BsbR4ghGr2WMRmLZcX6ObfFAj-pKyUhkxia6tWUiQQ&oe=632FFE97" />
+            </div>
+            <div class="item" (click)="handleRouting(3)">
+                <img class="img-type type3"
+                    src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t1.6435-9/173757177_1405708726446308_381937321710537372_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=kFVOx_RGWRoAX-DCUOf&_nc_ht=scontent.fsgn19-1.fna&oh=00_AT8Hq2aK1KC4EwY-AcPVQK1m6kZKP18OT59MXPqQK1-PcQ&oe=634EDD58" />
+            </div>
+            <div class="item" (click)="handleRouting(4)">
+                <img class="img-type1"
+                    src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c528.png" />
+                <!-- <img class="img-type1"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoJqPRFsC5cAmDQcdXhb7FgNv3kZN7LfUTLc-IejyxUw&s" /> -->
+            </div>
+            <div class="item" (click)="handleRouting(5)">
+                <img class="img-type1"
+                    src="https://img.favpng.com/24/16/22/youtube-portable-network-graphics-logo-computer-icons-image-png-favpng-BPAdgQaY8pvk2Z118EJFpkLsA.jpg" />
+                <!-- <img class="img-type1"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlO9KB--rykOgrF1-pm_rcPxmaixZpjYu_SzEU2eYcFA&s" /> -->
+            </div>
+            <div class="item" (click)="handleRouting(6)">
+                <img class="img-type type6"
+                    src="data:image/png;base64,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" />
+            </div>
+        </div>
+        <!-- <div class="gallery-index-2">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div> -->
+    </div>
+</div>
+<app-footer></app-footer>

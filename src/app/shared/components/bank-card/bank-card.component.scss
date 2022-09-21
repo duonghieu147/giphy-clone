@@ -1,0 +1,90 @@
+// body {
+//     padding: 0 24px;
+//     color: white; /* Change my color to yellow */
+//     margin: 0;
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-family: 'Prototype';
+//     font-style: normal;
+//     font-weight: 400;
+//     letter-spacing: 0.192em;
+//   }
+//   .content {
+//     width:800px;
+//     height:400px;
+//     background: #1E1E1E;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius:8px;
+//     width:450px;
+//     height:270px;
+//     border-radius: 15px;
+//     .card{
+//       width:450px;
+//       height:270px;
+//       left:50%;
+//       background: linear-gradient(106.41deg, rgba(255, 255, 255, 0.4) 7.3%, rgba(255, 255, 255, 0.1) 100%);
+//       box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.3);
+//       backdrop-filter: blur(40px);
+//       border-radius: 15px;
+//       .header {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         margin: 37px 28px 0 28px;
+//         p{
+//           font-size: 15px;
+//         }
+//       }
+//       .seri{
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         font-size: 31px;
+//         font-weight: 600;
+//         letter-spacing: 0.3em;
+//         mix-blend-mode: overlay;
+//       }
+//       .footer {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         margin: 37px 28px 0 28px;
+//                 font-size: 12px;
+//         .vaild {
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           flex-direction: column;
+//           p{
+//             margin:0;
+//             padding:0;
+//           }
+//           p:nth-child(1) {
+//             font-size: 8px;
+//           }
+//         }
+//       }
+//     }
+//   }
+//       .big {
+//     //   position: absolute;
+//       right: 19%;
+//       top: 7%;
+//       width:200px;
+//       height:200px;
+//       border-radius:50%;
+//       background: linear-gradient(223.73deg, #8100D4 28.55%, #EF2570 103.59%);
+//     }
+//     .small {
+//     //   position: absolute;
+//       left: 23%;
+//       bottom: 12%;
+//       width:100px;
+//       height:100px;
+//       border-radius:50%;
+//       background: linear-gradient(223.73deg, #8100D4 28.55%, #EF2570 103.59%);
+//     }

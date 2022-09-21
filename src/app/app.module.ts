@@ -11,6 +11,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ItemGifComponent } from './shared/components/item-gif/item-gif.component';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './shared/components/search/search.component';
+import { DashboardComponent } from './modules/page/dashboard/dashboard.component';
+import { BankCardComponent } from './shared/components/bank-card/bank-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { SearchComponent } from './shared/components/search/search.component';
     DetailGiphyComponent,
     FooterComponent,
     ItemGifComponent,
-    SearchComponent
+    SearchComponent,
+    DashboardComponent,
+    BankCardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,9 @@ import { SearchComponent } from './shared/components/search/search.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule 
+    CommonModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

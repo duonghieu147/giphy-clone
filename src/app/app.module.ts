@@ -16,6 +16,7 @@ import { BankCardComponent } from './shared/components/bank-card/bank-card.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,33 @@ import { LoginSocialMediaComponent } from './modules/page/login-social-media/log
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: 
+  [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('1479265649212023')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

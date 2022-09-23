@@ -1,19 +1,6 @@
 
-<pre>Sign in with google</pre>
-<!-- <div id="g_id_onload" data-client_id="892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com"
-    data-login_uri="http://localhost:4200" data-auto_prompt="false">
-</div>
-<div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
-    data-shape="rectangular" data-logo_alignment="left">
-</div> -->
+<!-- <pre>Sign in with google</pre>
 <div id="buttonDiv"></div> 
-
-
-<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div> -->
 
 <div (click)="loginFacebook()" class="fb-login">
     <svg class="icon-fb" style="width: 25px; height: 25px; margin-left: 15px;" xmlns="http://www.w3.org/2000/svg"
@@ -27,4 +14,36 @@
     </svg>
     
     <span class="title-fb-login" translate>login.login_facebook</span>
-  </div>
+  </div> -->
+
+
+
+  <!-- <div class="jumbotron bg-transparent text-center">
+    <div *ngIf="!user" class="card text-center">
+      <h6 class="card-header">
+        Social Login Demo
+      </h6>
+      <div class="card-block">
+        <h4 class="card-title">Not signed in</h4>
+        <p class="card-text">Sign in with</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+        <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
+      </div>
+    </div>
+    <div *ngIf="user" class="card text-center">
+      <h6 class="card-header">
+        Social Login Demo
+      </h6>
+      <div class="card-block"></div>
+      <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+      </div>
+    </div>
+  </div> -->

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, So
     SearchComponent,
     DashboardComponent,
     BankCardComponent,
-    LoginSocialMediaComponent
+    LoginSocialMediaComponent,
+    MyTubeComponent
   ],
   imports: [
     BrowserModule,

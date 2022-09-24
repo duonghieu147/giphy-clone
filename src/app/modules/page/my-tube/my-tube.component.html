@@ -1,0 +1,11 @@
+<pre>My-Tube</pre>
+<div *ngFor="let video of listDataYTube">
+    <!-- <div *ngIf="video == listDataYTube[0]"> -->
+        <pre>{{video.title}}</pre>
+        <pre>{{video.views}} --{{video.uploaded}}</pre>
+        <video width="320" height="240" poster={{video.thumbnail}} controls autoplay>
+            <source src={{video.link}} type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    <!-- </div> -->
+</div>

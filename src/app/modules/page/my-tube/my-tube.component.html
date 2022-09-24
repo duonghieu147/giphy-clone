@@ -1,11 +1,12 @@
 <pre>My-Tube</pre>
+<div class="search">
+    <input type="text" id='search'>
+    <button (click)="search()">search</button>
+</div>
 <div *ngFor="let video of listDataYTube">
-    <!-- <div *ngIf="video == listDataYTube[0]"> -->
-        <pre>{{video.title}}</pre>
-        <pre>{{video.views}} --{{video.uploaded}}</pre>
-        <video width="320" height="240" poster={{video.thumbnail}} controls autoplay>
-            <source src={{video.link}} type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    <!-- </div> -->
+    <pre>{{video.title}}</pre>
+    <pre>{{video.views}} --{{video.uploaded}}</pre>
+
+    <iframe src="{{video.link}}">
+    </iframe>
 </div>

@@ -8,19 +8,30 @@ import { MyTubeService } from 'src/app/shared/service/my-tube.service';
 })
 export class MyTubeComponent implements OnInit {
 
-  listDataYTube :any
+  listDataYTube: any
 
-  constructor( private myTubeService: MyTubeService) { }
+  constructor(private myTubeService: MyTubeService) { }
 
   ngOnInit(): void {
-    this.myTubeService.serchForVideos('fifa 19').subscribe( results => {
+    // this.myTubeService.serchForVideos('fifa 19').subscribe( results => {
+    //   this.bindingDataYTube(results)
+    // })
+  }
+
+  bindingDataYTube(data: any) {
+    console.log(data)
+    this.listDataYTube = data
+  }
+  search() {
+    let key = document.getElementById('search') as HTMLInputElement
+    this.serchForVideos(key.value)
+  }
+
+  serchForVideos(key: any) {
+    this.myTubeService.serchForVideos(key).subscribe(results => {
       this.bindingDataYTube(results)
     })
   }
 
-  bindingDataYTube(data:any) {
-    console.log(data)
-    this.listDataYTube= data
-  }
 
 }

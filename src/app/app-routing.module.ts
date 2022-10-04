@@ -5,6 +5,7 @@ import { DetailGiphyComponent } from './modules/page/detail-giphy/detail-giphy.c
 import { HomeComponent } from './modules/page/home/home.component';
 import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
 import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
+import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'gifs/:id', component: DetailGiphyComponent },
   { path: 'login', component: LoginSocialMediaComponent },
   { path: 'my-tube', component: MyTubeComponent },
+  { path: 'side-nav', component: SideNavComponent },
 ];
 
 @NgModule({

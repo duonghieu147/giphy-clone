@@ -18,6 +18,7 @@ import { MaterialModule } from './shared/material.module';
 import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
+import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
     DashboardComponent,
     BankCardComponent,
     LoginSocialMediaComponent,
-    MyTubeComponent
+    MyTubeComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

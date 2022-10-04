@@ -2,17 +2,22 @@
 <div class="container">
     <pre>DVH-TuBe</pre>
     <div class="search">
-        <input type="text" placeholder="Search..." autocomplete="off" autocapitalize="off"/>
-        <button>Search</button>
+        <input type="text" id="search" placeholder="Search..." autocomplete="off" autocapitalize="off"/>
+        <button (click)="search()">Search</button>
     </div>
     <div class="main">
         <div class="main-video">
-            <youtube-player *ngIf="listVideoYTube && listVideoYTube[0].id" videoId="listDataYTube[0].id" ></youtube-player>
-        </div>
-        <!-- <div class="sub-video">
-            <div *ngFor="let sub of listVideoYTube">
-                <youtube-player *ngIf="sub != listVideoYTube[0]" videoId="sub.id" ></youtube-player>
+            <pre>{{listVideoYTube[0].id}}</pre>
+            <div *ngIf="listVideoYTube && listVideoYTube[0].id">
+                <youtube-player videoId={{idVideo}}></youtube-player>
             </div>
-        </div> -->
+        </div>
+        <div class="sub-video">
+            <div *ngFor="let sub of listVideoYTube">
+                <div  *ngIf="sub != listVideoYTube[0]">
+                    <youtube-player videoId={{sub.id}}></youtube-player>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

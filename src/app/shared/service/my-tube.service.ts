@@ -48,6 +48,7 @@ export class MyTubeService {
 
   /**
    * https://youtube-music1.p.rapidapi.com/v2/search
+   * https://rapidapi.com/mirzahadjaevaguzal/api/youtube-music1/
    */
    serchForVideoV2(q:string):Observable<any> {
     return this.http.get<any>(rapidapi_v2+`/?query=${q}`,{headers:headers_v2})

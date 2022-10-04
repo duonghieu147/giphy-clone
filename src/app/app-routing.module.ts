@@ -8,7 +8,7 @@ import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
 import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  // { path: '', component: DashboardComponent },
   { path: 'gifs', component: HomeComponent },
   { path: 'gifs/:id', component: DetailGiphyComponent },
   { path: 'login', component: LoginSocialMediaComponent },

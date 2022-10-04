@@ -8,19 +8,28 @@ import { MyTubeService } from 'src/app/shared/service/my-tube.service';
 })
 export class MyTubeComponent implements OnInit {
 
-  listDataYTube: any
+  listSongYTube: any;
+  listVideoYTube: any;
+
+
 
   constructor(private myTubeService: MyTubeService) { }
 
   ngOnInit(): void {
-    // this.myTubeService.serchForVideos('fifa 19').subscribe( results => {
-    //   this.bindingDataYTube(results)
-    // })
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+    this.myTubeService.serchForVideoV2('cuộc đời của tôi').subscribe( results => {
+      this.bindingDataYTube(results)
+    })
   }
 
   bindingDataYTube(data: any) {
-    console.log(data)
-    this.listDataYTube = data
+    this.listSongYTube = data.result.songs
+    this.listVideoYTube = data.result.videos
+    console.log(data.result)
+    console.log(this.listVideoYTube)
+
   }
   search() {
     let key = document.getElementById('search') as HTMLInputElement
@@ -28,7 +37,7 @@ export class MyTubeComponent implements OnInit {
   }
 
   serchForVideos(key: any) {
-    this.myTubeService.serchForVideos(key).subscribe(results => {
+    this.myTubeService.serchForVideoV2(key).subscribe(results => {
       this.bindingDataYTube(results)
     })
   }

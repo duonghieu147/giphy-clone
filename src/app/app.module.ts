@@ -19,6 +19,7 @@ import { LoginSocialMediaComponent } from './modules/page/login-social-media/log
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
 import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { SideNavComponent } from './shared/components/side-nav/side-nav.componen
     BankCardComponent,
     LoginSocialMediaComponent,
     MyTubeComponent,
-    SideNavComponent
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { SideNavComponent } from './shared/components/side-nav/side-nav.componen
     CommonModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SocialLoginModule
+    SocialLoginModule,
+    YouTubePlayerModule
   ],
   providers: 
   [

@@ -1,12 +1,18 @@
-<pre>My-Tube</pre>
-<div class="search">
-    <input type="text" id='search'>
-    <button (click)="search()">search</button>
-</div>
-<div *ngFor="let video of listDataYTube">
-    <pre>{{video.title}}</pre>
-    <pre>{{video.views}} --{{video.uploaded}}</pre>
 
-    <iframe src="{{video.link}}">
-    </iframe>
+<div class="container">
+    <pre>DVH-TuBe</pre>
+    <div class="search">
+        <input type="text" placeholder="Search..." autocomplete="off" autocapitalize="off"/>
+        <button>Search</button>
+    </div>
+    <div class="main">
+        <div class="main-video">
+            <youtube-player *ngIf="listVideoYTube && listVideoYTube[0].id" videoId="listDataYTube[0].id" ></youtube-player>
+        </div>
+        <!-- <div class="sub-video">
+            <div *ngFor="let sub of listVideoYTube">
+                <youtube-player *ngIf="sub != listVideoYTube[0]" videoId="sub.id" ></youtube-player>
+            </div>
+        </div> -->
+    </div>
 </div>

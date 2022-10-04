@@ -9,6 +9,13 @@ const headers = new HttpHeaders({
     'X-RapidAPI-Host': 'ytube-videos.p.rapidapi.com'
 });
 
+const rapidapi_v2 = "https://youtube-music1.p.rapidapi.com/v2/search";
+const headers_v2 = new HttpHeaders({
+  'X-RapidAPI-Key': '077398d34bmsh488ff2e721aacf0p1e708ejsn6581eee251bf',
+  'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+});
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +43,14 @@ export class MyTubeService {
 
   serchForVideos(q:string, max?: '10', lang?: 'EN'):Observable<any> {
     return this.http.get<any>(rapidapi+`/search-video?q=${q}&max=${10}&lang=${lang}`,{headers:headers})
+      .pipe(catchError(this.handleError))
+  }
+
+  /**
+   * https://youtube-music1.p.rapidapi.com/v2/search
+   */
+   serchForVideoV2(q:string):Observable<any> {
+    return this.http.get<any>(rapidapi_v2+`/?query=${q}`,{headers:headers_v2})
       .pipe(catchError(this.handleError))
   }
 }

@@ -11,19 +11,4 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 48px;
-    iframe{
-        width: 200px !important;
-        height: 150px !important;
-        border-radius: 10px; 
-    }
-    .sub-video{
-        youtube-player{
-            iframe#widget2{
-                width: 200px !important;
-                height: 150px !important;
-                border-radius: 50px;
-            }
-        }
-
-    }
 }

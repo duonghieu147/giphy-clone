@@ -11,7 +11,7 @@ const headers = new HttpHeaders({
 
 const rapidapi_v2 = "https://youtube-music1.p.rapidapi.com/v2/search";
 const headers_v2 = new HttpHeaders({
-  'X-RapidAPI-Key': '077398d34bmsh488ff2e721aacf0p1e708ejsn6581eee251bf',
+  'X-RapidAPI-Key': 'b628748afemsh801d1fc996c1a18p13b27djsn9dcc5502a100',
   'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
 });
 

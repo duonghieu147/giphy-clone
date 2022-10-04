@@ -17,9 +17,7 @@ export class MyTubeComponent implements OnInit {
   constructor(private myTubeService: MyTubeService) { }
 
   ngOnInit(): void {
-    this.myTubeService.serchForVideoV2('cuộc đời của tôi').subscribe( results => {
-      this.bindingDataYTube(results)
-    })
+    this.serchForVideos('Cuộc sống của tôi')
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
@@ -28,9 +26,9 @@ export class MyTubeComponent implements OnInit {
   bindingDataYTube(data: any) {
     this.listSongYTube = data.result.songs
     this.listVideoYTube = data.result.videos
-    console.log(data.result)
-    console.log(this.listVideoYTube)
-    this.idVideo=this.listVideoYTube[0].id
+    console.log(data)
+    // console.log(this.listVideoYTube)
+    // this.idVideo=this.listVideoYTube[0].id
   }
   search() {
     let key = document.getElementById('search') as HTMLInputElement
@@ -38,7 +36,7 @@ export class MyTubeComponent implements OnInit {
   }
 
   serchForVideos(key: any) {
-    this.myTubeService.serchForVideoV2(key).subscribe(results => {
+    this.myTubeService.searchVieoByYoutube(key).subscribe(results => {
       this.bindingDataYTube(results)
     })
   }

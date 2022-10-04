@@ -14,14 +14,14 @@ body {
     iframe {
         width: 640px;
         height: 360px;
-        border: 10px;
+        border-radius: 10px;
     }
 
     .sub-video {
         iframe {
         width: 320px;
         height: 180px;
-        border: 10px;
+        border-radius: 10px;
         }
     }
 }

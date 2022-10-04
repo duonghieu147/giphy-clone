@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 
@@ -14,8 +14,12 @@ const headers_v2 = new HttpHeaders({
   'X-RapidAPI-Key': 'b628748afemsh801d1fc996c1a18p13b27djsn9dcc5502a100',
   'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
 });
-
-
+//https://developers.google.com/youtube/v3/docs/search/list?apix=true
+const APP_API_KEY = "892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com"
+const token = localStorage.getItem('token');
+const headersAuthorization = new HttpHeaders({
+  'Authorization': 'Bearer ' + token,
+});
 @Injectable({
   providedIn: 'root'
 })
@@ -53,5 +57,10 @@ export class MyTubeService {
    serchForVideoV2(q:string):Observable<any> {
     return this.http.get<any>(rapidapi_v2+`/?query=${q}`,{headers:headers_v2})
       .pipe(catchError(this.handleError))
+  }
+
+  searchVieoByYoutube(q:"cuộc sống của tôi"):Observable<any> { 
+    return this.http.get<any>(`https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=${APP_API_KEY}`,{headers:headers_v2})
+    .pipe(catchError(this.handleError))
   }
 }

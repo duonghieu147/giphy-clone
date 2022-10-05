@@ -130,12 +130,14 @@
   //   form.submit();
   // }
   function authenticate() {
+    console.log('gapi.auth2.getAuthInstance()');
     return gapi.auth2.getAuthInstance()
         .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
         .then(function() { console.log("Sign-in successful"); },
               function(err) { console.error("Error signing in", err); });
   }
   function loadClient() {
+    console.log('gapi.client.setApiKey');
     gapi.client.setApiKey("AIzaSyAB0yf0DnyKZ0sblNR8z6ZGsAjOdJh97k4");
     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
         .then(function() { console.log("GAPI client loaded for API"); },
@@ -143,16 +145,18 @@
   }
   // Make sure the client is loaded and sign-in is complete before calling this method.
   function execute() {
+    console.log('gapi.client.youtube.search');
     return gapi.client.youtube.search.list({
       "q": "cuộc sống của tôi"
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
-                console.log("Response", response);
+                console.log("Response", response.result.items);
               },
               function(err) { console.error("Execute error", err); });
   }
   gapi.load("client:auth2", function() {
+    console.log('init auth2')
     gapi.auth2.init({client_id: "892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com"});
   });
   // google

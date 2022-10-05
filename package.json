@@ -25,6 +25,8 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@angular/youtube-player": "^14.2.3",
+    "@types/gapi": "^0.0.42",
+    "@types/gapi.auth2": "^0.0.56",
     "express": "^4.18.1",
     "path": "^0.12.7",
     "rxjs": "~7.5.0",

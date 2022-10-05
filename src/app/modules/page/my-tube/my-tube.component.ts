@@ -10,7 +10,8 @@ export class MyTubeComponent implements OnInit {
 
   listSongYTube: any;
   listVideoYTube: any;
-  idVideo = 'x2ZdnWIzsno'
+  idVideo = 'IosC_hnU1DQ'
+  dataYouTube:any
 
 
 
@@ -24,10 +25,13 @@ export class MyTubeComponent implements OnInit {
   }
 
   bindingDataYTube(data: any) {
-    this.listSongYTube = data.result.songs
-    this.listVideoYTube = data.result.videos
     console.log(data)
-    // console.log(this.listVideoYTube)
+    this.dataYouTube =data
+    this.listVideoYTube = data.items
+    console.log(this.listVideoYTube)
+
+
+    // this.listSongYTube = data.result.songs
     // this.idVideo=this.listVideoYTube[0].id
   }
   search() {

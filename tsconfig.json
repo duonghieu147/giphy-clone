@@ -22,7 +22,8 @@
       "es2020",
       "dom"
     ],
-    "strictPropertyInitialization":false
+    "strictPropertyInitialization":false,
+    // "types": ["gapi", "gapi.auth2"],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

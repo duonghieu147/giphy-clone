@@ -7,15 +7,15 @@
     </div>
     <div class="main">
         <div class="main-video">
-            <pre>{{listVideoYTube[0].id}}</pre>
-            <div *ngIf="listVideoYTube && listVideoYTube[0].id">
-                <youtube-player videoId={{idVideo}}></youtube-player>
+            <pre>{{listVideoYTube[0].id.videoId}}</pre>
+            <div *ngIf="listVideoYTube && listVideoYTube[0].id.videoId">
+                <youtube-player videoId={{listVideoYTube[0].id.videoId}}></youtube-player>
             </div>
         </div>
         <div class="sub-video">
             <div *ngFor="let sub of listVideoYTube">
                 <div  *ngIf="sub != listVideoYTube[0]">
-                    <youtube-player videoId={{sub.id}}></youtube-player>
+                    <youtube-player videoId={{sub.id.videoId}}></youtube-player>
                 </div>
             </div>
         </div>

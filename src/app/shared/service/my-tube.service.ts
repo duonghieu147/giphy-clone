@@ -15,7 +15,7 @@ const headers_v2 = new HttpHeaders({
   'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
 });
 //https://developers.google.com/youtube/v3/docs/search/list?apix=true
-const APP_API_KEY = "892110720425-60pd4dcp1ra35ptuugv1bcesb8p9pcse.apps.googleusercontent.com"
+const APP_API_KEY = "AIzaSyAB0yf0DnyKZ0sblNR8z6ZGsAjOdJh97k4"
 const token = localStorage.getItem('token');
 const headersAuthorization = new HttpHeaders({
   'Authorization': 'Bearer ' + token,
@@ -60,7 +60,7 @@ export class MyTubeService {
   }
 
   searchVieoByYoutube(q:"cuộc sống của tôi"):Observable<any> { 
-    return this.http.get<any>(`https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=${APP_API_KEY}`,{headers:headers_v2})
+    return this.http.get<any>(`https://content-youtube.googleapis.com/youtube/v3/search?q=${q}&key=${APP_API_KEY}`)
     .pipe(catchError(this.handleError))
   }
 }

@@ -1,20 +1,24 @@
-
 <div class="container">
     <pre>DVH-TuBe</pre>
+    <input type="checkbox" [checked]="darkMode$ | async" (change)="onToggle()" />
     <div class="search">
-        <input type="text" id="search" placeholder="Search..." autocomplete="off" autocapitalize="off"/>
+        <input type="text" id="search" placeholder="Search..." autocomplete="off" autocapitalize="off"
+            value="FIFA 19 DVH private" />
         <button (click)="search()">Search</button>
     </div>
     <div class="main">
         <div class="main-video">
-            <pre>{{listVideoYTube[0].id.videoId}}</pre>
+            <pre>{{listVideoYTube[0].snippet.title}}</pre>
+            <pre>{{listVideoYTube[0].snippet.channelTitle-listVideoYTube[0].snippet.publishedAt}}</pre>
             <div *ngIf="listVideoYTube && listVideoYTube[0].id.videoId">
                 <youtube-player videoId={{listVideoYTube[0].id.videoId}}></youtube-player>
             </div>
+            <pre>{{listVideoYTube[0].snippet.description}}</pre>
         </div>
         <div class="sub-video">
             <div *ngFor="let sub of listVideoYTube">
-                <div  *ngIf="sub != listVideoYTube[0]">
+                <pre>{{sub.snippet.title}}</pre>
+                <div *ngIf="sub != listVideoYTube[0]">
                     <youtube-player videoId={{sub.id.videoId}}></youtube-player>
                 </div>
             </div>

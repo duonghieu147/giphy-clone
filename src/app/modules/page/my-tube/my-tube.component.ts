@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'angular-dark-mode';
+import { Observable } from 'rxjs';
 import { MyTubeService } from 'src/app/shared/service/my-tube.service';
 
 @Component({
@@ -14,14 +16,20 @@ export class MyTubeComponent implements OnInit {
   dataYouTube:any
 
 
+  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
 
-  constructor(private myTubeService: MyTubeService) { }
+  constructor(private myTubeService: MyTubeService,
+    private darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
-    this.serchForVideos('Cuộc sống của tôi')
+    this.serchForVideos('FIFA 19 DVH private')
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
+  }
+  
+  onToggle(): void {
+    this.darkModeService.toggle();
   }
 
   bindingDataYTube(data: any) {
@@ -29,10 +37,6 @@ export class MyTubeComponent implements OnInit {
     this.dataYouTube =data
     this.listVideoYTube = data.items
     console.log(this.listVideoYTube)
-
-
-    // this.listSongYTube = data.result.songs
-    // this.idVideo=this.listVideoYTube[0].id
   }
   search() {
     let key = document.getElementById('search') as HTMLInputElement

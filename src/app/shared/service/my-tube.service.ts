@@ -59,14 +59,15 @@ export class MyTubeService {
       .pipe(catchError(this.handleError))
   }
 
-  searchVieoByYoutube(q:"cuộc sống của tôi",maxResults?:25,order?:'relevance',videoDuration?:'any'):Observable<any> { 
+  searchVieoByYoutube(q:"FIFA 19 DVH private",maxResults?:25,order?:'relevance',videoDuration?:'any',part?:'snippet'):Observable<any> { 
     let params :any ;
       params = {
         key:APP_API_KEY,
         q: q,
         maxResults:maxResults?maxResults:25,
         order:order?order:'relevance',
-        videoDuration:videoDuration?videoDuration:'any'
+        videoDuration:videoDuration?videoDuration:'any',
+        part:part?part:'snippet'
     };
     return this.http.get<any>(`https://content-youtube.googleapis.com/youtube/v3/search`,{params})
     .pipe(catchError(this.handleError))

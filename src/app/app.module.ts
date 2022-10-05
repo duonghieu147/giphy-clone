@@ -21,6 +21,18 @@ import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
 import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { SignInComponent } from './modules/page/login/sign-in/sign-in.component';
+import { SignUpComponent } from './modules/page/login/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './modules/page/login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './modules/page/login/verify-email/verify-email.component';
+import { AuthService } from './shared/services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +46,10 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     LoginSocialMediaComponent,
     MyTubeComponent,
     SideNavComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +61,12 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     BrowserAnimationsModule,
     MaterialModule,
     SocialLoginModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: 
   [
@@ -69,7 +90,8 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
           console.error(err);
         }
       } as SocialAuthServiceConfig
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

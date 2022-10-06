@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'angular-dark-mode';
 import { Observable } from 'rxjs';
 import { MyTubeService } from 'src/app/shared/service/my-tube.service';
 
@@ -16,10 +15,8 @@ export class MyTubeComponent implements OnInit {
   dataYouTube:any
 
 
-  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
 
-  constructor(private myTubeService: MyTubeService,
-    private darkModeService: DarkModeService) { }
+  constructor(private myTubeService: MyTubeService) { }
 
   ngOnInit(): void {
     this.serchForVideos('FIFA 19 DVH private')
@@ -28,10 +25,6 @@ export class MyTubeComponent implements OnInit {
     document.body.appendChild(tag);
   }
   
-  onToggle(): void {
-    this.darkModeService.toggle();
-  }
-
   bindingDataYTube(data: any) {
     console.log(data)
     this.dataYouTube =data

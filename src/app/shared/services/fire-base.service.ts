@@ -19,6 +19,7 @@ import { Book } from './book';
     }
     /* Create book */
     AddBook(book: Book) {
+      this.booksRef = this.db.list('books-list');
       this.booksRef
         .push({
           book_name: book.book_name,

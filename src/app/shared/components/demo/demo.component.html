@@ -1,5 +1,36 @@
+<pre>HANDLE CRUD Realtime Database FIREBASE</pre>
 <button (click)="getBook(1)">get</button>
 <button (click)="getBookList()">getlist</button>
 <button (click)="addBook(dbCreate)">create</button>
 <button (click)="updateBook(1,dbUpdate)">update</button>
 <button (click)="deleteBook(1)">delete</button>
+<hr />
+<br>
+<pre>HANDLE STORAGE FIREBASE</pre>
+
+<input type="file" (change)="selectFile($event)" />
+
+<button [disabled]="!selectedFiles" (click)="upload()">
+  Upload
+</button>
+
+<div *ngIf="currentFileUpload">
+  <div>
+    {{ percentage }}%
+  </div>
+</div>
+
+<hr />
+<pre>LIST FILE UPLOAD</pre>
+<div class="card">
+  <div class="card-header">List of Files</div>
+  <ul class="list-group list-group-flush" *ngFor="let file of fileUploads">
+    <li class="list-group-item">
+      <a href="{{ file.url }}">{{ file.name }}</a>
+      <button (click)="deleteFileUpload(file)" class="btn btn-danger btn-sm" style="float: right">
+        Delete
+      </button>
+      <!-- <app-upload-details [fileUpload]='file'></app-upload-details> -->
+    </li>
+  </ul>
+</div>

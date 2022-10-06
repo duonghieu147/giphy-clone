@@ -42,6 +42,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { DemoComponent } from './components/demo/demo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
@@ -52,6 +53,9 @@ import { DemoComponent } from './components/demo/demo.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,

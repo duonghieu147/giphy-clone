@@ -16,10 +16,11 @@ import { Book } from './book';
 
     constructor(private db: AngularFireDatabase) {
       console.log(this.db)
+      this.booksRef = this.db.list('books-list');
+
     }
     /* Create book */
     AddBook(book: Book) {
-      this.booksRef = this.db.list('books-list');
       this.booksRef
         .push({
           book_name: book.book_name,
@@ -46,6 +47,7 @@ import { Book } from './book';
     }
     /* Update book */
     UpdateBook(id:any, book: Book) {
+      this.bookRef = this.db.object('books-list/' + id);
       this.bookRef
         .update({
           book_name: book.book_name,

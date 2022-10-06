@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { map } from 'rxjs';
 import { FileUpload } from '../../services/file-upload';
 import { FileUploadService } from '../../services/file-upload.service';
@@ -12,7 +13,7 @@ import { FireBaseService } from '../../services/fire-base.service';
 export class DemoComponent implements OnInit {
   dbResponse:any
   dbCreate = {
-    book_name: 'create',
+    book_name: '1111',
     isbn_10: 10,
     author_name: 'author_name',
     publication_date: new Date(),
@@ -34,6 +35,7 @@ export class DemoComponent implements OnInit {
   currentFileUpload?: FileUpload;
   percentage = 0;
   fileUploads?: any[];
+  Rform: FormGroup ;
 
   constructor(
     private fireBaseService: FireBaseService,
@@ -42,13 +44,18 @@ export class DemoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFilesUpload()
-  }
+    this.Rform= new FormGroup({
+      book_name: new FormControl(''),
+      isbn_10: new FormControl(0),
+      author_name: new FormControl(''),
+      publication_date: new FormControl(new Date()),
+      binding_type: new FormControl('mockdata'),
+      in_stock: new FormControl(''),
+      languages: new FormControl(['vn']),
 
-  addBook(book: any) {
-    this.fireBaseService.AddBook(book);
+    });
   }
   getBook(id: any) {
-    console.log('getBook', id)
     this.fireBaseService.GetBook(id).valueChanges().subscribe(results => {
       console.log('getBook', results)
     })
@@ -57,12 +64,17 @@ export class DemoComponent implements OnInit {
     this.dbResponse=this.fireBaseService.GetBookList().snapshotChanges()
     .subscribe(results=> {
       console.log('getBookList', results)
-
     })
   }
+
+  addBook(book: any) {
+    console.log('addBook', book)
+    this.fireBaseService.AddBook(book);
+  }
   updateBook(id: any, book: any) {
-    console.log('updateBook',id, book);
-    this.fireBaseService.UpdateBook(id, book);
+    let id_update = document.getElementById('id_update') as HTMLInputElement;
+    console.log('updateBook', id_update, book)
+    this.fireBaseService.UpdateBook(id_update.value, book);
   }
   deleteBook(id: any) {
     console.log('deleteBook', id);
@@ -107,4 +119,9 @@ export class DemoComponent implements OnInit {
       this.fileUploads = fileUploads;
     });
   }
+
+  /**
+   * Form 
+   */
+
 }

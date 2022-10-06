@@ -1,9 +1,21 @@
 <pre>HANDLE CRUD Realtime Database FIREBASE</pre>
+
+<form [formGroup]="Rform">
+  book_name: <input formControlName="book_name"  placeholder="Enter Name">
+  isbn_10: <input formControlName="isbn_10" type="number" placeholder="Enter Name">
+  author_name: <input formControlName="author_name" placeholder="Enter Name">
+  <!-- publication_date: <input formControlName="publication_date"  placeholder="Enter Name"> -->
+  in_stock: <input formControlName="in_stock"  placeholder="Enter Name">
+  <!-- languages: <input formControlName="languages"  placeholder="Enter Name"> -->
+</form>
+<input type="number" id="id_update">
+<button (click)="addBook(Rform.value)">create</button>
+<button (click)="updateBook(1,Rform.value)">update</button>
+<button (click)="deleteBook(1)">delete</button>
+
+
 <button (click)="getBook(1)">get</button>
 <button (click)="getBookList()">getlist</button>
-<button (click)="addBook(dbCreate)">create</button>
-<button (click)="updateBook(1,dbUpdate)">update</button>
-<button (click)="deleteBook(1)">delete</button>
 <hr />
 <br>
 <pre>HANDLE STORAGE FIREBASE</pre>

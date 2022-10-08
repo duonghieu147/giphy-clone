@@ -16,8 +16,12 @@
 
 <button (click)="getBook(1)">get</button>
 <button (click)="getBookList()">getlist</button>
+<div *ngFor="let item of dbRealTimeBooks">
+    <p>{{item.book_name}}</p>
+</div>
 <hr />
 <br>
+
 <pre>HANDLE STORAGE FIREBASE</pre>
 
 <input type="file" (change)="selectFile($event)" />
@@ -46,3 +50,6 @@
     </li>
   </ul>
 </div>
+
+<pre>HANDLE Cloud Firestore FIREBASE</pre>
+

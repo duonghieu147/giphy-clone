@@ -43,13 +43,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { DemoComponent } from './components/demo/demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
 // import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
     // SideNavComponent
   
-    DemoComponent
+    DemoComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

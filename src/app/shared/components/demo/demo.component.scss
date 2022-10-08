@@ -5,3 +5,14 @@ button{
     width: 100px;
     height: 32px;
 }
+*{
+    display: flex;
+    flex-direction: columns;
+    align-items: center;
+    justify-content: center;;
+}
+
+pre {
+    font-style: bold;
+    color: bluel
+}

@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { FileUpload } from '../../services/file-upload';
 import { FileUploadService } from '../../services/file-upload.service';
 import { FireBaseService } from '../../services/fire-base.service';
+import { getDatabase, ref, push, set } from "firebase/database";
 
 @Component({
   selector: 'app-demo',
@@ -37,6 +38,8 @@ export class DemoComponent implements OnInit {
   fileUploads?: any[];
   Rform: FormGroup ;
 
+  dbRealTimeBooks :any
+
   constructor(
     private fireBaseService: FireBaseService,
     private uploadService: FileUploadService
@@ -56,15 +59,24 @@ export class DemoComponent implements OnInit {
     });
   }
   getBook(id: any) {
-    this.fireBaseService.GetBook(id).valueChanges().subscribe(results => {
+    let id_update = document.getElementById('id_update') as HTMLInputElement;
+    let key = this.dbRealTimeBooks[id_update.value].key
+    this.fireBaseService.GetBook(key).valueChanges().subscribe(results => {
       console.log('getBook', results)
+      return results
     })
   }
   getBookList() {
     this.dbResponse=this.fireBaseService.GetBookList().snapshotChanges()
-    .subscribe(results=> {
-      console.log('getBookList', results)
-    })
+    .pipe(
+      map(result => result.map(c =>
+        ({ key: c.payload.key, ...c.payload.val() })
+      )
+    )
+    ).subscribe(data => {
+      this.dbRealTimeBooks = data;
+      console.log(this.dbRealTimeBooks)
+    });
   }
 
   addBook(book: any) {
@@ -73,12 +85,15 @@ export class DemoComponent implements OnInit {
   }
   updateBook(id: any, book: any) {
     let id_update = document.getElementById('id_update') as HTMLInputElement;
-    console.log('updateBook', id_update, book)
-    this.fireBaseService.UpdateBook(id_update.value, book);
+    let key = this.dbRealTimeBooks[id_update.value].key
+    console.log('updateBook', key, book)
+    this.fireBaseService.UpdateBook(key, book);
   }
   deleteBook(id: any) {
-    console.log('deleteBook', id);
-    this.fireBaseService.DeleteBook(id);
+    let id_update = document.getElementById('id_update') as HTMLInputElement;
+    let key = this.dbRealTimeBooks[id_update.value].key
+    console.log('deleteBook', key)
+    this.fireBaseService.DeleteBook(key);
   }
 
 //////
@@ -110,7 +125,7 @@ export class DemoComponent implements OnInit {
   }
 
   getFilesUpload() {
-    this.uploadService.getFiles(6).snapshotChanges().pipe(
+    this.uploadService.getFiles(99).snapshotChanges().pipe(
       map(changes =>
         // store the key
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))

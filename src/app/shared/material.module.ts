@@ -41,22 +41,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { DemoComponent } from './components/demo/demo.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CardComponent } from './components/card/card.component';
-// import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
-    // SideNavComponent
-  
-    DemoComponent,
-    CardComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     
     MatAutocompleteModule,
     MatCheckboxModule,

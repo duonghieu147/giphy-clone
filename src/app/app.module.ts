@@ -32,6 +32,7 @@ import { SignUpComponent } from './modules/page/login/sign-up/sign-up.component'
 import { ForgotPasswordComponent } from './modules/page/login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './modules/page/login/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { AuthService } from './shared/services/auth.service';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    SharedModule,
   ],
   providers: 
   [

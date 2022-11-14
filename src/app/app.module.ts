@@ -9,12 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ItemGifComponent } from './shared/components/item-gif/item-gif.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { SearchComponent } from './shared/components/search/search.component';
 import { DashboardComponent } from './modules/page/dashboard/dashboard.component';
 import { BankCardComponent } from './shared/components/bank-card/bank-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material.module';
+import { MaterialModule } from './shared/modules-common/material/material.module';
 import { LoginSocialMediaComponent } from './modules/page/login-social-media/login-social-media.component';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { MyTubeComponent } from './modules/page/my-tube/my-tube.component';
@@ -32,6 +32,12 @@ import { SignUpComponent } from './modules/page/login/sign-up/sign-up.component'
 import { ForgotPasswordComponent } from './modules/page/login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './modules/page/login/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import en from '@angular/common/locales/en';
+import { NgZorroAntdModule } from './shared/modules-common/ng-zorro-antd/ng-zorro-antd.module';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -59,7 +65,8 @@ import { AuthService } from './shared/services/auth.service';
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialModule, //Material UI Angular
+    NgZorroAntdModule, //NgZorroAntd {Ant design}
     SocialLoginModule,
     YouTubePlayerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -91,7 +98,8 @@ import { AuthService } from './shared/services/auth.service';
         }
       } as SocialAuthServiceConfig
     },
-    AuthService
+    AuthService,
+    { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]
 })
